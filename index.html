@@ -98,101 +98,112 @@
     <!-- ============ CURSOR DOT (desktop only) ============ -->
     <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
-    <!-- ============ NAV ============ -->
-    <header class="site-header" id="siteHeader">
-      <div class="header-bar">
-        <div class="header-bar-inner">
-          <span>San Antonio, TX &amp; Puerto Rico</span>
-          <span class="header-bar-sep" aria-hidden="true">/</span>
-          <span>SBA 8(a) Certified &middot; NHO-Owned</span>
-          <a class="header-bar-link" href="mailto:contact@jbwfederal.com"
-            >contact@jbwfederal.com</a
+<!-- ============ NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-bar">
+    <div class="header-bar-inner">
+      <span>San Antonio, TX &amp; Puerto Rico</span>
+      <span class="header-bar-sep" aria-hidden="true">/</span>
+      <span>SBA 8(a) Certified &middot; NHO-Owned</span>
+      <a class="header-bar-link" href="mailto:contact@jbwfederal.com">
+        contact@jbwfederal.com
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-shell">
+
+      <a href="/" class="nav-brand">
+        <span class="nav-brand-mark" aria-hidden="true">
+          <span class="nav-brand-mark-corner nav-brand-mark-corner--tl"></span>
+          <span class="nav-brand-mark-corner nav-brand-mark-corner--br"></span>
+        </span>
+        JBW <span>Federal</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span class="nav-toggle-label nav-toggle-label--open">Menu</span>
+        <span class="nav-toggle-label nav-toggle-label--close">Close</span>
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <i></i><i></i>
+        </span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+
+          <li>
+            <a href="/">
+              <span class="nav-link-num">01</span>
+              <span class="nav-link-text">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/what-we-do">
+              <span class="nav-link-num">02</span>
+              <span class="nav-link-text">What We Do</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/contract-vehicles">
+              <span class="nav-link-num">03</span>
+              <span class="nav-link-text">Contract Vehicles</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/career.html">
+              <span class="nav-link-num">04</span>
+              <span class="nav-link-text">Career</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/giveback">
+              <span class="nav-link-num">05</span>
+              <span class="nav-link-text">Giveback</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/contact-us">
+              <span class="nav-link-num">06</span>
+              <span class="nav-link-text">Contact Us</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <a href="/contact-us" class="btn btn-primary btn-small nav-cta">
+          <span>Start a Conversation</span>
+          <svg
+            class="nav-cta-arrow"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
           >
-        </div>
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+        </a>
       </div>
 
-      <nav class="nav" aria-label="Primary">
-        <div class="nav-shell">
-          <a href="#top" class="nav-brand">
-            <span class="nav-brand-mark" aria-hidden="true">
-              <span
-                class="nav-brand-mark-corner nav-brand-mark-corner--tl"
-              ></span>
-              <span
-                class="nav-brand-mark-corner nav-brand-mark-corner--br"
-              ></span>
-            </span>
-            JBW <span>Federal</span>
-          </a>
-
-          <button
-            class="nav-toggle"
-            id="navToggle"
-            aria-expanded="false"
-            aria-controls="navMenu"
-          >
-            <span class="nav-toggle-label nav-toggle-label--open">Menu</span>
-            <span class="nav-toggle-label nav-toggle-label--close">Close</span>
-            <span class="nav-toggle-icon" aria-hidden="true"
-              ><i></i><i></i
-            ></span>
-          </button>
-
-          <div class="nav-menu" id="navMenu">
-            <ul class="nav-links">
-              <li>
-                <a href="#capabilities"
-                  ><span class="nav-link-num">02</span
-                  ><span class="nav-link-text">Capabilities</span></a
-                >
-              </li>
-              <li>
-                <a href="#federal"
-                  ><span class="nav-link-num">04</span
-                  ><span class="nav-link-text">Federal Partnership</span></a
-                >
-              </li>
-              <li>
-                <a href="#projects"
-                  ><span class="nav-link-num">05</span
-                  ><span class="nav-link-text">Projects</span></a
-                >
-              </li>
-              <li>
-                <a href="#community"
-                  ><span class="nav-link-num">07</span
-                  ><span class="nav-link-text">Giveback</span></a
-                >
-              </li>
-              <li>
-                <a href="#cta"
-                  ><span class="nav-link-num">08</span
-                  ><span class="nav-link-text">Contact</span></a
-                >
-              </li>
-            </ul>
-
-            <a href="#cta" class="btn btn-primary btn-small nav-cta">
-              <span>Start a Conversation</span>
-              <svg
-                class="nav-cta-arrow"
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    </div>
+  </nav>
+</header>
 
     <main id="main">
       <!-- ============ 01 HERO ============ -->

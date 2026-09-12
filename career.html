@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers — JBW Federal</title>
+    <meta
+      name="description"
+      content="Careers with JBW Federal, an SBA 8(a)-certified, Native Hawaiian Organization-owned small business delivering construction, engineering, environmental, IT, logistics, and disaster recovery solutions for federal agencies nationwide."
+    />
+    <meta name="theme-color" content="#111C20" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Site design system (colors, type, header, footer, global components) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- ============================================================
+         CAREER PAGE — scoped styles only.
+         Every selector below is a new "career-*" / "jbw-*" class.
+         Nothing here redeclares .container, .btn, .eyebrow, .chip-row,
+         .hero-frame, .corner, .watermark, .nav-*, .site-header or
+         .site-footer — those are left exactly as defined in styles.css
+         so the header and footer are untouched.
+         Color values are copied 1:1 from the JBW color system so this
+         page renders correctly even if loaded on its own.
+         ============================================================ -->
+    <style>
+      :root {
+        --brand-primary: #17343b;
+        --brand-secondary: #4e6868;
+        --brand-accent: #a94f32;
+        --bg-primary: #f4f2ed;
+        --bg-secondary: #e9e7e0;
+        --surface: #ffffff;
+        --bg-dark: #111c20;
+        --surface-dark: #1c2a2d;
+        --text-primary: #17343b;
+        --text-secondary: #526166;
+        --text-muted: #5f6b6d;
+        --text-inverse: #f4f2ed;
+        --border: #d9ddd9;
+        --border-dark: #42575a;
+        --action: #a94f32;
+        --action-hover: #8f422b;
+        --focus: #a94f32;
+        --success: #2f6b4f;
+        --warning: #8a5a00;
+        --error: #b42318;
+        --info: #245a73;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg-primary);
+        overflow-x: hidden;
+      }
+
+      main :is(a, button):focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+      }
+
+      /* ---------- scroll reveal (self-contained, own class) ---------- */
+      .jbw-reveal {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      .jbw-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .jbw-reveal {
+          transition: opacity 0.7s cubic-bezier(0.16, 0.8, 0.24, 1),
+            transform 0.7s cubic-bezier(0.16, 0.8, 0.24, 1);
+          transition-delay: calc(var(--d, 0) * 90ms);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .jbw-reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* ---------- shared section rhythm ---------- */
+      .career-section {
+        padding-block: clamp(4.5rem, 9vw, 8rem);
+        position: relative;
+      }
+      .career-section--surface {
+        background: var(--surface);
+      }
+      .career-section--mineral {
+        background: var(--bg-secondary);
+      }
+      .career-section--dark {
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        overflow: hidden;
+      }
+      .career-section-head {
+        max-width: 44rem;
+        margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      }
+      .career-section-head h2 {
+        margin: 0.6rem 0 0;
+        max-width: 18ch;
+      }
+      .career-section-head--split {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      /* =========================================================
+         01 — HERO
+         ========================================================= */
+      .career-hero {
+        position: relative;
+        background: var(--bg-dark);
+        isolation: isolate;
+      }
+      .career-hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .career-hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 38%;
+        filter: saturate(0.55) contrast(1.06) brightness(0.92);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .career-hero-media img {
+          animation: careerHeroZoom 26s ease-in-out infinite alternate;
+        }
+      }
+      @keyframes careerHeroZoom {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.07);
+        }
+      }
+      .career-hero-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          185deg,
+          rgba(17, 28, 32, 0.5) 0%,
+          rgba(17, 28, 32, 0.82) 58%,
+          rgba(17, 28, 32, 0.97) 100%
+        );
+      }
+      .career-hero-texture {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        opacity: 0.5;
+        pointer-events: none;
+        background-image: radial-gradient(
+          rgba(244, 242, 237, 0.14) 1px,
+          transparent 1.6px
+        );
+        background-size: 26px 26px;
+      }
+      .career-hero-content {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2rem, 5vw, 5rem);
+        align-items: end;
+        padding-block: clamp(7rem, 15vw, 10.5rem) clamp(4.5rem, 8vw, 6rem);
+      }
+      .career-hero-title {
+        margin: 1rem 0 1.75rem;
+        font-size: clamp(2.6rem, 1.7rem + 3.6vw, 5.5rem);
+        line-height: 1.03;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--text-inverse);
+      }
+      .career-hero-title em {
+        font-style: italic;
+        font-weight: 600;
+      }
+      .career-hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .career-hero-secondary {
+        border-left: 1px solid var(--border-dark);
+        padding-left: clamp(1.5rem, 3vw, 2.5rem);
+      }
+      .career-hero-lede {
+        margin: 0;
+        max-width: 40ch;
+        color: var(--text-inverse);
+        opacity: 0.86;
+        font-size: clamp(1.02rem, 0.95rem + 0.3vw, 1.2rem);
+        line-height: 1.65;
+      }
+      .career-hero-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(1.5rem, 3vw, 2.75rem);
+        margin: 2.25rem 0 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-dark);
+      }
+      .career-hero-facts div {
+        min-width: 8rem;
+      }
+      .career-hero-facts dt {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-inverse);
+        opacity: 0.55;
+        margin-bottom: 0.4rem;
+      }
+      .career-hero-facts dd {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-inverse);
+      }
+      .career-scroll-cue {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.55rem;
+        width: fit-content;
+        margin: 0 auto;
+        padding-bottom: clamp(1.75rem, 4vw, 2.75rem);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.64rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-inverse);
+        opacity: 0.6;
+      }
+      .career-scroll-cue span {
+        width: 1px;
+        height: 26px;
+        background: var(--text-inverse);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .career-scroll-cue span {
+          animation: careerScrollLine 1.9s ease-in-out infinite;
+        }
+      }
+      @keyframes careerScrollLine {
+        0%,
+        100% {
+          transform: scaleY(0.4);
+          opacity: 0.35;
+        }
+        50% {
+          transform: scaleY(1);
+          opacity: 0.85;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .career-hero-content {
+          grid-template-columns: 1fr;
+          align-items: start;
+        }
+        .career-hero-secondary {
+          border-left: none;
+          border-top: 1px solid var(--border-dark);
+          padding-left: 0;
+          padding-top: 1.75rem;
+        }
+      }
+
+      /* =========================================================
+         02 — WHY JBW
+         ========================================================= */
+      .career-why-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: clamp(2.5rem, 5vw, 5rem);
+        align-items: start;
+      }
+      .career-why-lead {
+        position: sticky;
+        top: 6.5rem;
+      }
+      .career-why-lead p {
+        margin: 1.25rem 0 0;
+        max-width: 34ch;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.65;
+      }
+      .career-why-list {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--border);
+      }
+      .career-why-item {
+        display: grid;
+        grid-template-columns: 2.75rem 1fr 1.25rem;
+        gap: 1.5rem;
+        align-items: start;
+        padding: 1.75rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .career-why-item {
+          transition: background-color 0.3s ease, margin 0.3s ease,
+            padding 0.3s ease;
+        }
+      }
+      .career-why-item:hover,
+      .career-why-item:focus-within {
+        background: var(--bg-secondary);
+        margin-inline: -1.25rem;
+        padding-inline: 1.25rem;
+      }
+      .career-why-num {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.85rem;
+        color: var(--brand-accent);
+        padding-top: 0.2rem;
+      }
+      .career-why-body h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.15rem;
+        color: var(--text-primary);
+      }
+      .career-why-body p {
+        margin: 0;
+        max-width: 54ch;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+      .career-why-arrow {
+        padding-top: 0.3rem;
+        color: var(--brand-accent);
+        opacity: 0;
+        transform: translateX(-6px);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .career-why-arrow {
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+      }
+      .career-why-item:hover .career-why-arrow,
+      .career-why-item:focus-within .career-why-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      @media (max-width: 900px) {
+        .career-why-grid {
+          grid-template-columns: 1fr;
+        }
+        .career-why-lead {
+          position: static;
+        }
+      }
+      @media (max-width: 560px) {
+        .career-why-item {
+          grid-template-columns: 2.25rem 1fr;
+        }
+        .career-why-arrow {
+          display: none;
+        }
+      }
+
+      /* =========================================================
+         03 — PEOPLE / CULTURE
+         ========================================================= */
+      .career-people-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(2.5rem, 5vw, 4.5rem);
+        align-items: center;
+      }
+      .career-people-media {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .career-people-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.72) contrast(1.05);
+      }
+      .career-people-tag {
+        position: absolute;
+        left: 1.1rem;
+        bottom: 1.1rem;
+        background: var(--surface);
+        color: var(--text-primary);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--border);
+      }
+      .career-people-lead {
+        margin: 0 0 1.25rem;
+        max-width: 24ch;
+        font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem);
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--text-primary);
+      }
+      .career-people-copy p {
+        margin: 0 0 1.35rem;
+        max-width: 52ch;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+      .career-people-traits {
+        margin-top: 1.5rem;
+      }
+
+      @media (max-width: 900px) {
+        .career-people-grid {
+          grid-template-columns: 1fr;
+        }
+        .career-people-media {
+          aspect-ratio: 16 / 10;
+        }
+      }
+
+      /* =========================================================
+         04 — OPPORTUNITIES
+         ========================================================= */
+      .career-opportunities-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(2.5rem, 5vw, 5rem);
+        align-items: start;
+      }
+      .career-opportunities-intro p {
+        margin: 1.25rem 0 0;
+        max-width: 40ch;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+      .career-opportunities-actions {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .career-btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.5rem;
+        border: 1px solid var(--brand-primary);
+        color: var(--brand-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        background: transparent;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .career-btn-outline {
+          transition: background-color 0.25s ease, color 0.25s ease,
+            border-color 0.25s ease;
+        }
+      }
+      .career-btn-outline:hover,
+      .career-btn-outline:focus-visible {
+        background: var(--brand-primary);
+        color: var(--text-inverse);
+      }
+      .career-opportunities-note {
+        margin-top: 1.5rem;
+        max-width: 38ch;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+      .career-benefits {
+        border-top: 1px solid var(--border);
+        padding-top: 1.75rem;
+      }
+      .career-benefits h3 {
+        margin: 0 0 1.25rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .career-benefits-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.95rem 2rem;
+      }
+      .career-benefits-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--text-secondary);
+      }
+      .career-benefits-icon {
+        flex: none;
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+        color: var(--success);
+      }
+
+      @media (max-width: 900px) {
+        .career-opportunities-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .career-benefits-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* =========================================================
+         05 — MISSION / IMPACT (dark)
+         ========================================================= */
+      .career-mission-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(2.5rem, 5vw, 5rem);
+        align-items: center;
+      }
+      .career-mission-statement {
+        margin: 1rem 0 2rem;
+        max-width: 22ch;
+        font-size: clamp(1.4rem, 1.05rem + 1.3vw, 2.05rem);
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--text-inverse);
+      }
+      .career-mission-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid var(--border-dark);
+      }
+      .career-mission-list li {
+        display: grid;
+        grid-template-columns: 2.75rem 1fr;
+        gap: 1.25rem;
+        padding: 1.4rem 0;
+        border-bottom: 1px solid var(--border-dark);
+      }
+      .career-mission-num {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 0.8rem;
+        color: var(--brand-accent);
+        padding-top: 0.15rem;
+      }
+      .career-mission-list h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--text-inverse);
+      }
+      .career-mission-list p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        color: var(--text-inverse);
+        opacity: 0.75;
+      }
+      .career-mission-media {
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border: 1px solid var(--border-dark);
+      }
+      .career-mission-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.6) contrast(1.08) brightness(0.95);
+      }
+
+      @media (max-width: 900px) {
+        .career-mission-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* =========================================================
+         06 — FINAL CTA (dark)
+         ========================================================= */
+      .career-cta-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 44rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .career-cta-title {
+        margin: 1rem 0 1.5rem;
+        font-size: clamp(2.2rem, 1.5rem + 2.6vw, 3.75rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -0.01em;
+        color: var(--text-inverse);
+      }
+      .career-cta-inner > p {
+        margin: 0 auto;
+        max-width: 40ch;
+        color: var(--text-inverse);
+        opacity: 0.85;
+        line-height: 1.6;
+      }
+      .career-cta-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ SKIP LINK ============ -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ SCROLL PROGRESS ============ -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============ CURSOR DOT (desktop only) ============ -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+    <!-- ============ NAV (unchanged) ============ -->
+    <header class="site-header" id="siteHeader">
+      <div class="header-bar">
+        <div class="header-bar-inner">
+          <span>San Antonio, TX &amp; Puerto Rico</span>
+          <span class="header-bar-sep" aria-hidden="true">/</span>
+          <span>SBA 8(a) Certified &middot; NHO-Owned</span>
+          <a class="header-bar-link" href="mailto:contact@jbwfederal.com">
+            contact@jbwfederal.com
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <div class="nav-shell">
+          <a href="/" class="nav-brand">
+            <span class="nav-brand-mark" aria-hidden="true">
+              <span
+                class="nav-brand-mark-corner nav-brand-mark-corner--tl"
+              ></span>
+              <span
+                class="nav-brand-mark-corner nav-brand-mark-corner--br"
+              ></span>
+            </span>
+            JBW <span>Federal</span>
+          </a>
+
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="navMenu"
+          >
+            <span class="nav-toggle-label nav-toggle-label--open">Menu</span>
+            <span class="nav-toggle-label nav-toggle-label--close"
+              >Close</span
+            >
+            <span class="nav-toggle-icon" aria-hidden="true">
+              <i></i><i></i>
+            </span>
+          </button>
+
+          <div class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+              <li>
+                <a href="/">
+                  <span class="nav-link-num">01</span>
+                  <span class="nav-link-text">Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="/what-we-do">
+                  <span class="nav-link-num">02</span>
+                  <span class="nav-link-text">What We Do</span>
+                </a>
+              </li>
+              <li>
+                <a href="/contract-vehicles">
+                  <span class="nav-link-num">03</span>
+                  <span class="nav-link-text">Contract Vehicles</span>
+                </a>
+              </li>
+              <li>
+                <a href="/career.html">
+                  <span class="nav-link-num">04</span>
+                  <span class="nav-link-text">Career</span>
+                </a>
+              </li>
+              <li>
+                <a href="/giveback">
+                  <span class="nav-link-num">05</span>
+                  <span class="nav-link-text">Giveback</span>
+                </a>
+              </li>
+              <li>
+                <a href="/contact-us">
+                  <span class="nav-link-num">06</span>
+                  <span class="nav-link-text">Contact Us</span>
+                </a>
+              </li>
+            </ul>
+
+            <a href="/contact-us" class="btn btn-primary btn-small nav-cta">
+              <span>Start a Conversation</span>
+              <svg
+                class="nav-cta-arrow"
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ============ 01 — CAREER HERO ============ -->
+      <section class="career-hero" id="top">
+        <div class="career-hero-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+            fetchpriority="high"
+          />
+        </div>
+        <div class="career-hero-overlay" aria-hidden="true"></div>
+        <div class="career-hero-texture" aria-hidden="true"></div>
+        <div class="hero-frame" aria-hidden="true">
+          <span class="corner corner-tl"></span>
+          <span class="corner corner-br"></span>
+        </div>
+
+        <div class="container career-hero-content">
+          <div class="career-hero-primary">
+            <p class="eyebrow eyebrow-inverse jbw-reveal">
+              <span class="eyebrow-mark"></span>
+              Careers at JBW Federal
+            </p>
+            <h1 class="career-hero-title jbw-reveal" style="--d: 1">
+              Careers built for the missions that <em>matter</em>.
+            </h1>
+            <div class="career-hero-actions jbw-reveal" style="--d: 2">
+              <a href="#opportunities" class="btn btn-primary"
+                >View Open Opportunities</a
+              >
+              <a href="#mission" class="btn btn-ghost-inverse">
+                Our Mission
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="career-hero-secondary jbw-reveal" style="--d: 3">
+            <p class="career-hero-lede">
+              Every project we take on answers to a federal mission —
+              infrastructure, readiness, recovery. The people who deliver it
+              are hired for capability, not tenure.
+            </p>
+            <dl class="career-hero-facts">
+              <div>
+                <dt>Certification</dt>
+                <dd>SBA 8(a) &middot; NHO&#8209;Owned</dd>
+              </div>
+              <div>
+                <dt>Disciplines</dt>
+                <dd>Six, one accountable team</dd>
+              </div>
+              <div>
+                <dt>Reach</dt>
+                <dd>CONUS &amp; Puerto Rico</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="career-scroll-cue" aria-hidden="true">
+          <span></span>
+          Scroll
+        </div>
+      </section>
+
+      <!-- ============ 02 — WHY JBW ============ -->
+      <section class="career-section" id="why">
+        <div class="container">
+          <div class="career-section-head">
+            <p class="eyebrow jbw-reveal">01 — Why JBW</p>
+            <h2 class="jbw-reveal" style="--d: 1">
+              Small-business agility. Career-defining work.
+            </h2>
+          </div>
+
+          <div class="career-why-grid">
+            <div class="career-why-lead jbw-reveal" style="--d: 1">
+              <p>
+                You'll work in a place built for speed, not bureaucracy —
+                where the technical bar is high, decisions move fast, and
+                growth tracks what you can do, not how long you've been doing
+                it.
+              </p>
+            </div>
+
+            <ul class="career-why-list" role="list">
+              <li class="career-why-item jbw-reveal" style="--d: 1" tabindex="0">
+                <span class="career-why-num">01</span>
+                <div class="career-why-body">
+                  <h3>Mission-critical work</h3>
+                  <p>
+                    Federal infrastructure, environmental remediation, and
+                    disaster response — work that answers to agencies like
+                    USACE, NAVFAC, and FEMA, not a quarterly roadmap.
+                  </p>
+                </div>
+                <span class="career-why-arrow" aria-hidden="true">→</span>
+              </li>
+
+              <li class="career-why-item jbw-reveal" style="--d: 2" tabindex="0">
+                <span class="career-why-num">02</span>
+                <div class="career-why-body">
+                  <h3>Technical depth</h3>
+                  <p>
+                    Licensed engineers, project managers, and specialists
+                    across six disciplines, working problems that don't come
+                    with a template.
+                  </p>
+                </div>
+                <span class="career-why-arrow" aria-hidden="true">→</span>
+              </li>
+
+              <li class="career-why-item jbw-reveal" style="--d: 3" tabindex="0">
+                <span class="career-why-num">03</span>
+                <div class="career-why-body">
+                  <h3>Federal fluency</h3>
+                  <p>
+                    Deep familiarity with FAR, DFARS, and agency-specific
+                    procurement — knowledge that compounds the longer you're
+                    in it.
+                  </p>
+                </div>
+                <span class="career-why-arrow" aria-hidden="true">→</span>
+              </li>
+
+              <li class="career-why-item jbw-reveal" style="--d: 4" tabindex="0">
+                <span class="career-why-num">04</span>
+                <div class="career-why-body">
+                  <h3>Direct decision-making</h3>
+                  <p>
+                    Short chains of command mean the people closest to the
+                    work are the ones making the calls.
+                  </p>
+                </div>
+                <span class="career-why-arrow" aria-hidden="true">→</span>
+              </li>
+
+              <li class="career-why-item jbw-reveal" style="--d: 5" tabindex="0">
+                <span class="career-why-num">05</span>
+                <div class="career-why-body">
+                  <h3>Growth tied to capability</h3>
+                  <p>
+                    Compensation and advancement are built around what you
+                    can do — not years of service.
+                  </p>
+                </div>
+                <span class="career-why-arrow" aria-hidden="true">→</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 03 — PEOPLE / CULTURE ============ -->
+      <section class="career-section career-section--surface" id="people">
+        <div class="container">
+          <div class="career-section-head">
+            <p class="eyebrow jbw-reveal">02 — Our People</p>
+            <h2 class="jbw-reveal" style="--d: 1">
+              The work is technical. The team is human.
+            </h2>
+          </div>
+
+          <div class="career-people-grid">
+            <div class="career-people-media jbw-reveal" style="--d: 1">
+              <img
+                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85"
+                alt="JBW Federal engineers reviewing project plans on site"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="career-people-tag">On-site coordination</span>
+            </div>
+
+            <div class="career-people-copy jbw-reveal" style="--d: 2">
+              <p class="career-people-lead">
+                Engineers, project managers, and specialists — working
+                directly with the agencies they serve.
+              </p>
+              <p>
+                Our team spans construction superintendents, licensed
+                engineers, environmental scientists, IT specialists, and
+                logisticians, all coordinating across a small enough company
+                that decisions don't get lost in layers of approval.
+              </p>
+              <p>
+                As a Native Hawaiian Organization-owned business, that same
+                sense of stewardship extends to how we treat our people —
+                investment in growth, not just headcount.
+              </p>
+              <ul class="chip-row career-people-traits">
+                <li>Direct access to leadership</li>
+                <li>Cross-discipline collaboration</li>
+                <li>Federal-grade standards</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 — OPPORTUNITIES ============ -->
+      <section
+        class="career-section career-section--mineral"
+        id="opportunities"
+      >
+        <div class="container">
+          <div class="career-section-head">
+            <p class="eyebrow jbw-reveal">03 — Opportunities</p>
+            <h2 class="jbw-reveal" style="--d: 1">
+              Open roles, real benefits.
+            </h2>
+          </div>
+
+          <div class="career-opportunities-grid">
+            <div class="career-opportunities-intro jbw-reveal" style="--d: 1">
+              <p>
+                We hire for capability aligned with the mission at hand —
+                not headcount targets. Currently building teams across
+                construction, engineering, environmental, IT, logistics, and
+                emergency response. Reach out and we'll talk about where you
+                fit.
+              </p>
+              <div class="career-opportunities-actions">
+                <a
+                  href="mailto:contact@jbwfederal.com?subject=Career%20Opportunities%20at%20JBW%20Federal"
+                  class="btn btn-primary"
+                  >Start a Conversation</a
+                >
+                <!-- Swap this href for your ATS / job board link once one exists -->
+                <a href="#opportunities" class="career-btn-outline"
+                  >Browse Open Positions</a
+                >
+              </div>
+              <p class="career-opportunities-note">
+                No open role listed for your background? Send your resume
+                anyway — we keep it on file for the next mission that needs
+                it.
+              </p>
+            </div>
+
+            <div class="career-benefits jbw-reveal" style="--d: 2">
+              <h3>What's included</h3>
+              <ul class="career-benefits-list">
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Company-paid medical insurance
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Dental insurance
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vision insurance
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Vacation, sick, and holiday time
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  401(k) match
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Long-term disability plan
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Short-term disability plan
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Supplemental life and disability
+                </li>
+                <li>
+                  <svg
+                    class="career-benefits-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l3.5 3.5L16 6"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Life and accidental death insurance
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 — MISSION / IMPACT ============ -->
+      <section class="career-section career-section--dark" id="mission">
+        <span class="watermark watermark--inverse" aria-hidden="true">04</span>
+        <div class="container">
+          <div class="career-section-head">
+            <p class="eyebrow eyebrow-inverse jbw-reveal">
+              04 — Mission &amp; Impact
+            </p>
+            <h2 class="jbw-reveal" style="--d: 1">
+              Your work reaches further than the job site.
+            </h2>
+          </div>
+
+          <div class="career-mission-grid">
+            <div class="jbw-reveal" style="--d: 1">
+              <p class="career-mission-statement">
+                Every role connects to a mission bigger than the task in
+                front of it.
+              </p>
+              <ul class="career-mission-list">
+                <li>
+                  <span class="career-mission-num">01</span>
+                  <div>
+                    <h3>Infrastructure</h3>
+                    <p>
+                      Facilities and systems federal agencies depend on
+                      every day.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="career-mission-num">02</span>
+                  <div>
+                    <h3>Federal missions</h3>
+                    <p>
+                      Direct support to USACE, NAVFAC, FEMA, DoD, and
+                      civilian agencies.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="career-mission-num">03</span>
+                  <div>
+                    <h3>Resilience</h3>
+                    <p>
+                      Disaster recovery and emergency response when
+                      communities need it most.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="career-mission-num">04</span>
+                  <div>
+                    <h3>Stewardship</h3>
+                    <p>
+                      As an NHO-owned company, growth here supports cultural
+                      preservation and community programs.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="career-mission-media jbw-reveal" style="--d: 2">
+              <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 06 — FINAL CTA ============ -->
+      <section class="career-section career-section--dark" id="apply">
+        <div class="hero-frame" aria-hidden="true">
+          <span class="corner corner-tl"></span>
+          <span class="corner corner-br"></span>
+        </div>
+        <span class="watermark watermark--inverse" aria-hidden="true">05</span>
+        <div class="container career-cta-inner">
+          <p class="eyebrow eyebrow-inverse jbw-reveal">05 — Get in Touch</p>
+          <h2 class="career-cta-title jbw-reveal" style="--d: 1">
+            Ready to build what's next?
+          </h2>
+          <p class="jbw-reveal" style="--d: 2">
+            Tell us about your background and where you'd want to
+            contribute. We read every message.
+          </p>
+          <div class="career-cta-actions jbw-reveal" style="--d: 3">
+            <a
+              href="mailto:contact@jbwfederal.com?subject=Career%20Opportunities%20at%20JBW%20Federal"
+              class="btn btn-primary"
+              >Start a Conversation</a
+            >
+            <a href="tel:2105010086" class="btn btn-ghost-inverse"
+              >210&#8209;501&#8209;0086</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER (unchanged) ============ -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-statement">
+          <p class="footer-eyebrow">Closing</p>
+          <h2 class="footer-headline">
+            Built for the missions that matter<span class="accent"
+              >.</span
+            >
+          </h2>
+        </div>
+        <a href="#apply" class="footer-cta">
+          <span>Discuss a Project</span>
+          <span class="footer-cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="nav-brand nav-brand--footer">
+            <span class="nav-brand-mark" aria-hidden="true"></span>
+            JBW <span>Federal</span>
+          </a>
+          <p>
+            Native Hawaiian Organization-owned 8(a) small business serving
+            federal and commercial clients throughout CONUS and Puerto Rico.
+          </p>
+          <ul class="chip-row">
+            <li>SBA 8(a)</li>
+            <li>NHO&#8209;Owned</li>
+            <li>SDB</li>
+          </ul>
+        </div>
+
+        <nav class="footer-col" aria-label="Site">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#mission">Federal Partnership</a></li>
+            <li><a href="#people">Giveback</a></li>
+            <li><a href="#apply">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Capabilities">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="/what-we-do">Construction</a></li>
+            <li><a href="/what-we-do">Engineering</a></li>
+            <li><a href="/what-we-do">Environmental</a></li>
+            <li><a href="/what-we-do">Information Technology</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col footer-reach">
+          <h4>Contact</h4>
+          <p class="reach-line">Serving federal missions nationwide.</p>
+          <address>
+            16414 San Pedro Avenue, Suite 450<br />San Antonio, TX 78232
+          </address>
+          <ul class="footer-contact">
+            <li>
+              <a href="mailto:contact@jbwfederal.com"
+                >contact@jbwfederal.com</a
+              >
+            </li>
+            <li><a href="tel:2105010086">210-501-0086</a></li>
+            <li><a href="tel:3134842994">313-484-2994</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <div class="footer-brandmark">
+            <span class="mark" aria-hidden="true"></span>
+            <span>© 2026 JBW Federal. All rights reserved.</span>
+          </div>
+          <div class="footer-legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <noscript>
+      <style>
+        .jbw-reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+
+    <!-- Site-wide nav toggle / scroll progress / cursor behavior -->
+    <script src="script.js"></script>
+
+    <!-- Career page reveal-on-scroll (self-contained, doesn't depend on script.js internals) -->
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".jbw-reveal");
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        els.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
