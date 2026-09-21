@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JBW Federal — 8(a) Direct Award | Contract Vehicles</title>
+    <meta
+      name="description"
+      content="The SBA 8(a) Sole Source vehicle allows federal agencies to award direct buy contracts to JBW Federal — a Native Hawaiian Organization-owned, 8(a)-certified firm — up to $100 million in total contract value."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Existing global stylesheet (header + footer + design system) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- =========================================================
+         PAGE STYLES — Contract Vehicles / 8(a) Direct Award
+         Every rule below is scoped to .cv-page (or to elements that
+         only exist on this page), so nothing here can reach the
+         existing header, footer, or any global styles in styles.css.
+         Colors are page-local custom properties holding the exact
+         JBW Federal token values — no global :root is overridden.
+         ========================================================= -->
+    <style>
+      /* ---------- Skip link (safe, page-level) ---------- */
+      a.skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 999;
+        background: #17343b;
+        color: #f4f2ed;
+        padding: 12px 18px;
+        font: 600 13px/1 "Public Sans", -apple-system, Segoe UI, sans-serif;
+        text-decoration: none;
+      }
+      a.skip-link:focus {
+        left: 12px;
+        top: 12px;
+      }
+
+      /* =========================================================
+         1. PAGE SHELL + TOKENS
+         ========================================================= */
+      .cv-page {
+        /* Brand */
+        --cv-ink: #17343b;
+        --cv-slate: #4e6868;
+        --cv-copper: #a94f32;
+        --cv-copper-hover: #8f422b;
+
+        /* Surfaces */
+        --cv-paper: #f4f2ed;
+        --cv-mineral: #e9e7e0;
+        --cv-white: #ffffff;
+        --cv-deep: #111c20;
+        --cv-raised: #1c2a2d;
+
+        /* Text */
+        --cv-text: #17343b;
+        --cv-text-2: #526166;
+        --cv-muted: #5f6b6d;
+        --cv-inverse: #f4f2ed;
+
+        /* Lines */
+        --cv-border: #d9ddd9;
+        --cv-border-dark: #42575a;
+
+        /* Type */
+        --cv-sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --cv-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+          monospace;
+
+        /* Metrics */
+        --cv-max: 1280px;
+        --cv-gutter: clamp(20px, 5vw, 64px);
+        --cv-band: clamp(64px, 8.5vw, 128px);
+
+        font-family: var(--cv-sans);
+        color: var(--cv-text);
+        background: var(--cv-paper);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: block;
+      }
+
+      .cv-page *,
+      .cv-page *::before,
+      .cv-page *::after {
+        box-sizing: border-box;
+      }
+      .cv-page h1,
+      .cv-page h2,
+      .cv-page h3,
+      .cv-page h4,
+      .cv-page p,
+      .cv-page ul,
+      .cv-page ol,
+      .cv-page dl,
+      .cv-page dd,
+      .cv-page figure {
+        margin: 0;
+      }
+      .cv-page ul,
+      .cv-page ol {
+        list-style: none;
+        padding: 0;
+      }
+      .cv-page img {
+        display: block;
+        max-width: 100%;
+      }
+      .cv-page address {
+        font-style: normal;
+      }
+
+      .cv-page a:focus-visible,
+      .cv-page button:focus-visible {
+        outline: 2px solid var(--cv-copper);
+        outline-offset: 3px;
+      }
+      .cv-section--dark a:focus-visible,
+      .cv-section--dark button:focus-visible {
+        outline-color: var(--cv-inverse);
+      }
+
+      .cv-shell {
+        width: 100%;
+        max-width: var(--cv-max);
+        margin-inline: auto;
+        padding-inline: var(--cv-gutter);
+      }
+
+      /* =========================================================
+         2. SECTION SYSTEM
+         ========================================================= */
+      .cv-section {
+        position: relative;
+        padding-block: var(--cv-band);
+      }
+      .cv-section--paper {
+        background: var(--cv-paper);
+      }
+      .cv-section--mineral {
+        background: var(--cv-mineral);
+      }
+      .cv-section--white {
+        background: var(--cv-white);
+      }
+      .cv-section--dark {
+        background: var(--cv-deep);
+        color: var(--cv-inverse);
+        --cv-text: #f4f2ed;
+        --cv-text-2: rgba(244, 242, 237, 0.76);
+        --cv-muted: rgba(244, 242, 237, 0.58);
+        --cv-border: #42575a;
+      }
+      .cv-section--ink {
+        background: var(--cv-ink);
+      }
+
+      .cv-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+      }
+      .cv-eyebrow::before {
+        content: "";
+        flex: none;
+        width: 20px;
+        height: 1px;
+        background: var(--cv-copper);
+      }
+
+      .cv-head {
+        display: grid;
+        gap: 18px 56px;
+        padding-top: 26px;
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-head h2,
+      .cv-title {
+        font-size: clamp(27px, 3.8vw, 44px);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -0.022em;
+        max-width: 20ch;
+        color: var(--cv-text);
+      }
+      .cv-title {
+        margin-bottom: 26px;
+      }
+      .cv-head p {
+        color: var(--cv-text-2);
+        font-size: clamp(15px, 1.35vw, 17px);
+        line-height: 1.62;
+        max-width: 60ch;
+        margin-top: 16px;
+      }
+      @media (min-width: 900px) {
+        .cv-head {
+          grid-template-columns: minmax(190px, 1fr) minmax(0, 2.45fr);
+        }
+      }
+
+      /* =========================================================
+         3. BUTTONS
+         ========================================================= */
+      .cv-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 26px;
+        font-family: var(--cv-sans);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        transition:
+          background-color 0.25s ease,
+          border-color 0.25s ease,
+          color 0.25s ease,
+          transform 0.25s ease;
+      }
+      .cv-btn--primary {
+        background: var(--cv-copper);
+        color: #fff;
+      }
+      .cv-btn--primary:hover {
+        background: var(--cv-copper-hover);
+      }
+      .cv-btn--line {
+        border-color: var(--cv-border);
+        color: var(--cv-text);
+        background: transparent;
+      }
+      .cv-btn--line:hover {
+        border-color: var(--cv-copper);
+        color: var(--cv-copper);
+      }
+      .cv-section--dark .cv-btn--line {
+        border-color: var(--cv-border-dark);
+        color: var(--cv-inverse);
+      }
+      .cv-section--dark .cv-btn--line:hover {
+        border-color: var(--cv-inverse);
+      }
+
+      /* =========================================================
+         4. MOTION (one quiet system, reduced-motion aware)
+         ========================================================= */
+      .cv-js .cv-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.7s cubic-bezier(0.22, 0.7, 0.2, 1),
+          transform 0.7s cubic-bezier(0.22, 0.7, 0.2, 1);
+        transition-delay: calc(var(--d, 0) * 70ms);
+      }
+      .cv-js .cv-reveal.is-in {
+        opacity: 1;
+        transform: none;
+      }
+      .cv-js .cv-mask > span {
+        display: block;
+        transform: translateY(108%);
+        transition: transform 0.95s cubic-bezier(0.2, 0.75, 0.2, 1);
+        transition-delay: calc(var(--d, 0) * 95ms);
+      }
+      .cv-js .cv-hero.is-in .cv-mask > span {
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .cv-js .cv-reveal,
+        .cv-js .cv-mask > span {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .cv-page * {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      /* =========================================================
+         5. HERO
+         ========================================================= */
+      .cv-hero {
+        position: relative;
+        background: var(--cv-deep);
+        color: var(--cv-inverse);
+        overflow: hidden;
+        padding-top: clamp(96px, 14vw, 172px);
+        padding-bottom: 0;
+        --cv-border: #42575a;
+        --cv-muted: rgba(244, 242, 237, 0.58);
+        --cv-text-2: rgba(244, 242, 237, 0.76);
+      }
+      .cv-hero-media {
+        position: absolute;
+        inset: 0;
+      }
+      .cv-hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 42%;
+        opacity: 0.28;
+        filter: saturate(0.55) contrast(1.05) grayscale(0.3);
+      }
+      .cv-hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(17, 28, 32, 0.66) 0%,
+          rgba(17, 28, 32, 0.84) 52%,
+          #111c20 100%
+        );
+      }
+      .cv-hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          to right,
+          rgba(244, 242, 237, 0.055) 1px,
+          transparent 1px
+        );
+        background-size: calc(100% / 6) 100%;
+        pointer-events: none;
+      }
+      .cv-hero-inner {
+        position: relative;
+        z-index: 2;
+      }
+      .cv-hero-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        padding-bottom: 28px;
+      }
+      .cv-hero-file {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+      }
+      .cv-hero h1 {
+        font-size: clamp(42px, 9.4vw, 118px);
+        font-weight: 800;
+        line-height: 0.94;
+        letter-spacing: -0.035em;
+        margin-block: 8px 0;
+        max-width: 14ch;
+      }
+      .cv-hero h1 .cv-mask {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 0.04em;
+      }
+      .cv-hero-sub {
+        margin-top: clamp(24px, 3vw, 36px);
+        font-size: clamp(16px, 1.55vw, 20px);
+        line-height: 1.6;
+        color: var(--cv-text-2);
+        max-width: 56ch;
+      }
+      .cv-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: clamp(30px, 3.4vw, 44px);
+        padding-bottom: clamp(56px, 7vw, 96px);
+      }
+      .cv-hero-meta {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-hero-meta > div {
+        padding: 18px 18px 22px 0;
+      }
+      .cv-hero-meta dt {
+        font-family: var(--cv-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-bottom: 8px;
+      }
+      .cv-hero-meta dd {
+        font-size: 14.5px;
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--cv-inverse);
+      }
+      @media (min-width: 860px) {
+        .cv-hero-meta {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .cv-hero-meta > div + div {
+          border-left: 1px solid var(--cv-border);
+          padding-left: 26px;
+        }
+      }
+
+      /* =========================================================
+         6. OVERVIEW
+         ========================================================= */
+      .cv-overview-grid {
+        display: grid;
+        gap: 22px 56px;
+      }
+      .cv-lede {
+        font-size: clamp(17px, 1.65vw, 21px);
+        line-height: 1.62;
+        color: var(--cv-text-2);
+        max-width: 68ch;
+      }
+      .cv-lede + .cv-lede {
+        margin-top: 20px;
+      }
+      @media (min-width: 900px) {
+        .cv-overview-grid {
+          grid-template-columns: minmax(190px, 1fr) minmax(0, 2.45fr);
+        }
+      }
+
+      .cv-enables {
+        display: grid;
+        margin-top: clamp(44px, 5.5vw, 76px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-enable {
+        padding: 26px 0 28px;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-enable-idx {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: var(--cv-copper);
+        margin-bottom: 14px;
+      }
+      .cv-enable h3 {
+        font-size: 17px;
+        font-weight: 700;
+        letter-spacing: -0.008em;
+        margin-bottom: 8px;
+      }
+      .cv-enable p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: var(--cv-text-2);
+        max-width: 42ch;
+      }
+      @media (min-width: 720px) {
+        .cv-enables {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 56px;
+        }
+      }
+      @media (min-width: 1080px) {
+        .cv-enables {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          column-gap: 36px;
+        }
+      }
+
+      /* =========================================================
+         7. AWARD CEILING ($100M)
+         ========================================================= */
+      .cv-ceiling {
+        display: grid;
+        gap: clamp(38px, 5vw, 72px);
+        align-items: end;
+      }
+      .cv-ceiling-kicker {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+      }
+      .cv-ceiling-upto {
+        margin-top: 26px;
+        padding-top: 16px;
+        border-top: 2px solid var(--cv-copper);
+        display: inline-block;
+        font-family: var(--cv-mono);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cv-inverse);
+      }
+      .cv-ceiling-num {
+        font-family: var(--cv-mono);
+        font-weight: 600;
+        font-size: clamp(66px, 13.5vw, 156px);
+        line-height: 0.88;
+        letter-spacing: -0.045em;
+        color: var(--cv-inverse);
+        font-variant-numeric: tabular-nums;
+        margin-top: 6px;
+      }
+      .cv-ceiling-cap {
+        margin-top: 14px;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        color: var(--cv-text-2);
+      }
+      .cv-ceiling-note p {
+        font-size: clamp(15px, 1.4vw, 17.5px);
+        line-height: 1.68;
+        color: var(--cv-text-2);
+        max-width: 54ch;
+      }
+      .cv-refs-inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .cv-refs-inline li {
+        font-family: var(--cv-mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        color: var(--cv-inverse);
+        padding: 8px 14px;
+        border: 1px solid var(--cv-border);
+      }
+      @media (min-width: 940px) {
+        .cv-ceiling {
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        }
+      }
+
+      /* =========================================================
+         8. PROCESS
+         ========================================================= */
+      .cv-process {
+        display: grid;
+        gap: clamp(36px, 4vw, 64px);
+        margin-top: clamp(40px, 4.5vw, 64px);
+      }
+      .cv-process-aside {
+        align-self: start;
+      }
+      .cv-process-aside p {
+        font-size: 14.5px;
+        line-height: 1.62;
+        color: var(--cv-text-2);
+        max-width: 34ch;
+      }
+      .cv-process-legend {
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid var(--cv-border);
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        line-height: 1.9;
+      }
+      @media (min-width: 980px) {
+        .cv-process {
+          grid-template-columns: minmax(200px, 1fr) minmax(0, 2.45fr);
+        }
+        .cv-process-aside {
+          position: sticky;
+          top: 120px;
+        }
+      }
+
+      .cv-step {
+        display: grid;
+        grid-template-columns: 62px minmax(0, 1fr);
+        gap: 0 22px;
+        padding-bottom: 38px;
+      }
+      .cv-step:last-child {
+        padding-bottom: 0;
+      }
+      .cv-step-num {
+        position: relative;
+        font-family: var(--cv-mono);
+        font-weight: 600;
+        font-size: clamp(22px, 3vw, 30px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--cv-slate);
+        padding-top: 2px;
+      }
+      .cv-step-num::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 46px;
+        bottom: -38px;
+        width: 1px;
+        background: var(--cv-border);
+      }
+      .cv-step:last-child .cv-step-num::after {
+        display: none;
+      }
+      .cv-step-actor {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--cv-copper);
+        margin-bottom: 10px;
+      }
+      .cv-step h3 {
+        font-size: clamp(19px, 2vw, 24px);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      .cv-step p.cv-step-text {
+        font-size: 15.5px;
+        line-height: 1.68;
+        color: var(--cv-text-2);
+        max-width: 62ch;
+      }
+      @media (max-width: 560px) {
+        .cv-step {
+          grid-template-columns: 42px minmax(0, 1fr);
+          gap: 0 16px;
+          padding-bottom: 32px;
+        }
+        .cv-step-num::after {
+          top: 36px;
+          bottom: -32px;
+          left: 5px;
+        }
+      }
+
+      /* =========================================================
+         9. ACQUISITION TIMELINE
+         ========================================================= */
+      .cv-compare {
+        margin-top: clamp(40px, 4.5vw, 64px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-compare-row {
+        display: grid;
+        gap: 12px;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--cv-border);
+        align-items: center;
+      }
+      .cv-compare-label {
+        font-family: var(--cv-mono);
+        font-size: 11.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cv-text);
+      }
+      .cv-track {
+        position: relative;
+        height: 10px;
+        background: rgba(23, 52, 59, 0.08);
+      }
+      .cv-bar {
+        display: block;
+        height: 100%;
+        width: var(--cv-w, 100%);
+        background: var(--cv-slate);
+      }
+      .cv-bar--accent {
+        background: var(--cv-copper);
+      }
+      .cv-js .cv-bar {
+        width: 0;
+        transition: width 1.25s cubic-bezier(0.22, 0.72, 0.16, 1) 0.12s;
+      }
+      .cv-js .is-in .cv-bar {
+        width: var(--cv-w, 100%);
+      }
+      .cv-compare-val {
+        font-family: var(--cv-mono);
+        font-weight: 600;
+        font-size: clamp(24px, 3.4vw, 38px);
+        letter-spacing: -0.03em;
+        line-height: 1;
+        color: var(--cv-text);
+        font-variant-numeric: tabular-nums;
+      }
+      .cv-compare-val em {
+        font-style: normal;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-left: 8px;
+      }
+      .cv-compare-foot {
+        margin-top: 24px;
+        font-size: 13.5px;
+        line-height: 1.65;
+        color: var(--cv-muted);
+        max-width: 62ch;
+      }
+      @media (min-width: 820px) {
+        .cv-compare-row {
+          grid-template-columns: minmax(170px, 210px) minmax(0, 1fr) 170px;
+          gap: 32px;
+        }
+        .cv-compare-val {
+          text-align: right;
+        }
+      }
+
+      /* =========================================================
+         10. REGULATORY BASIS
+         ========================================================= */
+      .cv-regs {
+        display: grid;
+        gap: 0;
+        margin-top: clamp(36px, 4vw, 56px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-reg {
+        padding: 30px 0;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-reg-src {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-bottom: 14px;
+      }
+      .cv-reg-cite {
+        font-family: var(--cv-mono);
+        font-weight: 600;
+        font-size: clamp(22px, 2.8vw, 32px);
+        letter-spacing: -0.02em;
+        color: var(--cv-text);
+        overflow-wrap: anywhere;
+      }
+      .cv-reg-note {
+        margin-top: 12px;
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: var(--cv-text-2);
+        max-width: 40ch;
+      }
+      @media (min-width: 760px) {
+        .cv-regs {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 56px;
+        }
+      }
+
+      /* =========================================================
+         11. FEDERAL CONTRACTOR INFORMATION
+         ========================================================= */
+      .cv-data {
+        display: grid;
+        margin-top: clamp(36px, 4vw, 56px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-data > div {
+        padding: 24px 0 26px;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-data dt {
+        font-family: var(--cv-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-bottom: 12px;
+      }
+      .cv-data dd {
+        font-family: var(--cv-mono);
+        font-size: clamp(16px, 1.7vw, 19px);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: var(--cv-text);
+        overflow-wrap: anywhere;
+      }
+      @media (min-width: 680px) {
+        .cv-data {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 48px;
+        }
+      }
+      @media (min-width: 1000px) {
+        .cv-data {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          column-gap: 40px;
+        }
+      }
+
+      .cv-poc {
+        margin-top: clamp(40px, 4.5vw, 64px);
+        background: var(--cv-white);
+        border: 1px solid var(--cv-border);
+        border-left: 2px solid var(--cv-copper);
+        padding: clamp(26px, 3.4vw, 44px);
+      }
+      .cv-poc-head {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-poc-head h3 {
+        font-size: clamp(18px, 2vw, 22px);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+      }
+      .cv-poc-head span {
+        font-family: var(--cv-mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+      }
+      .cv-poc-grid {
+        display: grid;
+        gap: 0;
+        margin-top: 4px;
+      }
+      .cv-poc-grid > div {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-poc-grid > div:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+      .cv-poc-grid dt {
+        font-family: var(--cv-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-bottom: 10px;
+      }
+      .cv-poc-grid dd {
+        font-size: 15.5px;
+        line-height: 1.55;
+        color: var(--cv-text);
+        overflow-wrap: anywhere;
+      }
+      .cv-poc-grid dd a {
+        color: var(--cv-copper);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(169, 79, 50, 0.35);
+        padding-bottom: 1px;
+      }
+      .cv-poc-grid dd a:hover {
+        color: var(--cv-copper-hover);
+        border-bottom-color: var(--cv-copper-hover);
+      }
+      @media (min-width: 780px) {
+        .cv-poc-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 56px;
+        }
+        .cv-poc-grid > div:nth-last-child(2) {
+          border-bottom: 0;
+          padding-bottom: 0;
+        }
+      }
+
+      /* =========================================================
+         12. BONDING CAPACITY
+         ========================================================= */
+      .cv-bond {
+        display: grid;
+        margin-top: clamp(34px, 4vw, 52px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-bond > div {
+        padding: clamp(30px, 4vw, 46px) 0;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-bond-val {
+        font-family: var(--cv-mono);
+        font-weight: 600;
+        font-size: clamp(46px, 7.4vw, 88px);
+        line-height: 0.9;
+        letter-spacing: -0.045em;
+        color: var(--cv-text);
+        font-variant-numeric: tabular-nums;
+      }
+      .cv-bond-lab {
+        margin-top: 16px;
+        font-family: var(--cv-mono);
+        font-size: 11.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+      }
+      @media (min-width: 720px) {
+        .cv-bond {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 56px;
+        }
+      }
+
+      /* =========================================================
+         13. CTA
+         ========================================================= */
+      .cv-cta {
+        position: relative;
+        overflow: hidden;
+      }
+      .cv-cta-frame {
+        position: absolute;
+        inset: clamp(18px, 2.4vw, 34px);
+        pointer-events: none;
+      }
+      .cv-cta-frame span {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border: 1px solid var(--cv-border-dark);
+      }
+      .cv-cta-frame span:first-child {
+        top: 0;
+        left: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+      .cv-cta-frame span:last-child {
+        right: 0;
+        bottom: 0;
+        border-left: 0;
+        border-top: 0;
+      }
+      .cv-cta-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 780px;
+      }
+      .cv-cta h2 {
+        font-size: clamp(32px, 5.4vw, 62px);
+        font-weight: 800;
+        line-height: 1.02;
+        letter-spacing: -0.03em;
+        margin: 20px 0 22px;
+        color: var(--cv-inverse);
+      }
+      .cv-cta p {
+        font-size: clamp(15px, 1.45vw, 18px);
+        line-height: 1.65;
+        color: var(--cv-text-2);
+        max-width: 56ch;
+      }
+      .cv-cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: clamp(28px, 3.4vw, 40px);
+      }
+      .cv-cta-direct {
+        display: grid;
+        gap: 0;
+        margin-top: clamp(40px, 5vw, 64px);
+        border-top: 1px solid var(--cv-border);
+      }
+      .cv-cta-direct > div {
+        padding: 22px 0;
+        border-bottom: 1px solid var(--cv-border);
+      }
+      .cv-cta-direct dt {
+        font-family: var(--cv-mono);
+        font-size: 10.5px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--cv-muted);
+        margin-bottom: 10px;
+      }
+      .cv-cta-direct dd {
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--cv-inverse);
+        overflow-wrap: anywhere;
+      }
+      .cv-cta-direct dd a {
+        color: var(--cv-inverse);
+        text-decoration: none;
+        border-bottom: 1px solid var(--cv-border-dark);
+        padding-bottom: 2px;
+      }
+      .cv-cta-direct dd a:hover {
+        border-bottom-color: var(--cv-copper);
+      }
+      @media (min-width: 760px) {
+        .cv-cta-direct {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          column-gap: 48px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      document.documentElement.classList.add("cv-js");
+    </script>
+
+    <!-- ============ SKIP LINK ============ -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ SCROLL PROGRESS ============ -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- ============ CURSOR DOT (desktop only) ============ -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-bar">
+    <div class="header-bar-inner">
+      <span>San Antonio, TX &amp; Puerto Rico</span>
+      <span class="header-bar-sep" aria-hidden="true">/</span>
+      <span>SBA 8(a) Certified &middot; NHO-Owned</span>
+      <a class="header-bar-link" href="mailto:contact@jbwfederal.com">
+        contact@jbwfederal.com
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-shell">
+
+      <a href="/" class="nav-brand">
+        <span class="nav-brand-mark" aria-hidden="true">
+          <span class="nav-brand-mark-corner nav-brand-mark-corner--tl"></span>
+          <span class="nav-brand-mark-corner nav-brand-mark-corner--br"></span>
+        </span>
+        JBW <span>Federal</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span class="nav-toggle-label nav-toggle-label--open">Menu</span>
+        <span class="nav-toggle-label nav-toggle-label--close">Close</span>
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <i></i><i></i>
+        </span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+
+          <li>
+            <a href="/">
+              <span class="nav-link-num">01</span>
+              <span class="nav-link-text">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/what-we-do">
+              <span class="nav-link-num">02</span>
+              <span class="nav-link-text">What We Do</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/contract-vehicles" aria-current="page">
+              <span class="nav-link-num">03</span>
+              <span class="nav-link-text">Contract Vehicles</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/career.html">
+              <span class="nav-link-num">04</span>
+              <span class="nav-link-text">Career</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/giveback">
+              <span class="nav-link-num">05</span>
+              <span class="nav-link-text">Giveback</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/contact-us">
+              <span class="nav-link-num">06</span>
+              <span class="nav-link-text">Contact Us</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <a href="/contact-us" class="btn btn-primary btn-small nav-cta">
+          <span>Start a Conversation</span>
+          <svg
+            class="nav-cta-arrow"
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 8h10M9 4l4 4-4 4"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+    <main id="main" class="cv-page">
+      <!-- ============ 01 HERO ============ -->
+      <section class="cv-hero" id="top" aria-labelledby="cv-hero-title">
+        <div class="cv-hero-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+            decoding="async"
+          />
+        </div>
+        <div class="cv-hero-grid" aria-hidden="true"></div>
+
+        <div class="cv-shell cv-hero-inner">
+          <div class="cv-hero-top">
+            <p class="cv-eyebrow">Contract Vehicles</p>
+            <p class="cv-hero-file">SBA 8(a) Sole Source</p>
+          </div>
+
+          <h1 id="cv-hero-title">
+            <span class="cv-mask"><span style="--d: 0">8(a)</span></span>
+            <span class="cv-mask"><span style="--d: 1">Direct Award</span></span>
+          </h1>
+
+          <p class="cv-hero-sub cv-reveal" style="--d: 3">
+            A direct buy path to contract with JBW Federal — no competitive
+            solicitation, negotiated scope, and awards up to $100 million in
+            total contract value under our SBA 8(a) certification.
+          </p>
+
+          <div class="cv-hero-actions cv-reveal" style="--d: 4">
+            <a class="cv-btn cv-btn--primary" href="#process">
+              See how an award is made
+            </a>
+            <a class="cv-btn cv-btn--line" href="#contractor-information">
+              Contractor information
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-shell">
+          <dl class="cv-hero-meta cv-reveal" style="--d: 5">
+            <div>
+              <dt>Vehicle</dt>
+              <dd>SBA 8(a) Sole Source</dd>
+            </div>
+            <div>
+              <dt>Ceiling</dt>
+              <dd>$100M total contract value</dd>
+            </div>
+            <div>
+              <dt>Authority</dt>
+              <dd>FAR 19.805-1(b)(2)</dd>
+            </div>
+            <div>
+              <dt>Firm status</dt>
+              <dd>Hawaiian Native Owned 8(a)</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- ============ 02 OVERVIEW ============ -->
+      <section
+        class="cv-section cv-section--paper"
+        id="overview"
+        aria-labelledby="cv-overview-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-overview-grid">
+            <p class="cv-eyebrow cv-reveal">01 — What the vehicle is</p>
+            <div>
+              <h2 id="cv-overview-title" class="cv-title cv-reveal" style="--d: 1">
+                A direct buy between an agency and a certified 8(a) contractor.
+              </h2>
+              <p class="cv-lede cv-reveal" style="--d: 2">
+                The Small Business Administration (SBA) 8(a) Sole Source vehicle
+                enables agencies to engage in direct buy contracts with
+                certified contractors, streamlining and simplifying the
+                acquisition process for Contracting Officers and federal
+                agencies. This acquisition method provides for direct
+                negotiations in clarifying scope and budget, allowing both the
+                federal government and 8(a) contractor to reduce risk — and
+                therefore cost — in delivery. It has the added benefit of
+                providing a streamlined process for rapid acquisition, and is a
+                recommended vehicle of choice for time-sensitive projects with
+                complex (and sometimes incomplete) requirements.
+              </p>
+            </div>
+          </div>
+
+          <ul class="cv-enables">
+            <li class="cv-enable cv-reveal">
+              <p class="cv-enable-idx">01</p>
+              <h3>Direct negotiation</h3>
+              <p>
+                Scope and budget are clarified directly between the agency and
+                JBW Federal, rather than through a competitive solicitation.
+              </p>
+            </li>
+            <li class="cv-enable cv-reveal" style="--d: 1">
+              <p class="cv-enable-idx">02</p>
+              <h3>A simplified acquisition</h3>
+              <p>
+                The process is streamlined and simplified for Contracting
+                Officers and the federal agencies they support.
+              </p>
+            </li>
+            <li class="cv-enable cv-reveal" style="--d: 2">
+              <p class="cv-enable-idx">03</p>
+              <h3>Reduced risk and cost</h3>
+              <p>
+                Both the federal government and the 8(a) contractor reduce risk
+                — and therefore cost — in delivery.
+              </p>
+            </li>
+            <li class="cv-enable cv-reveal" style="--d: 3">
+              <p class="cv-enable-idx">04</p>
+              <h3>Fit for time-sensitive work</h3>
+              <p>
+                A recommended vehicle of choice for time-sensitive projects with
+                complex, and sometimes incomplete, requirements.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 03 AWARD CEILING ============ -->
+      <section
+        class="cv-section cv-section--dark cv-section--ink"
+        id="award-ceiling"
+        aria-labelledby="cv-ceiling-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-ceiling">
+            <div>
+              <p class="cv-ceiling-kicker cv-reveal" id="cv-ceiling-title">
+                Sole Source Direct Awards
+              </p>
+              <p class="cv-ceiling-upto cv-reveal" style="--d: 1">Up to</p>
+              <p class="cv-ceiling-num cv-reveal" style="--d: 1">
+                <span
+                  data-cv-count="100"
+                  data-cv-prefix="$"
+                  data-cv-suffix="M"
+                  >$100M</span
+                >
+              </p>
+              <p class="cv-ceiling-cap cv-reveal" style="--d: 2">
+                in total contract value
+              </p>
+            </div>
+
+            <div class="cv-ceiling-note cv-reveal" style="--d: 2">
+              <p>
+                As per FAR 19.805-1(b)(2) and 13 CFR 124.506(b), JBW Federal, as
+                a Hawaiian Native Owned 8(a)-certified firm, can accept Sole
+                Source Awards up to $100 million in total contract value.
+              </p>
+              <ul class="cv-refs-inline" aria-label="Cited authorities">
+                <li>FAR 19.805-1(b)(2)</li>
+                <li>13 CFR 124.506(b)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 PROCESS ============ -->
+      <section
+        class="cv-section cv-section--paper"
+        id="process"
+        aria-labelledby="cv-process-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-head">
+            <p class="cv-eyebrow cv-reveal">02 — How an award is made</p>
+            <div>
+              <h2 id="cv-process-title" class="cv-reveal" style="--d: 1">
+                Five steps from requirement to award.
+              </h2>
+            </div>
+          </div>
+
+          <div class="cv-process">
+            <div class="cv-process-aside cv-reveal">
+              <p>
+                Each step below names who acts and what they produce, so a
+                program manager or Contracting Officer can see exactly where a
+                requirement sits in the process.
+              </p>
+              <p class="cv-process-legend">
+                Sequence read top to bottom<br />
+                Actor shown above each step
+              </p>
+            </div>
+
+            <ol class="cv-steps">
+              <li class="cv-step cv-reveal">
+                <div class="cv-step-num" aria-hidden="true">01</div>
+                <div>
+                  <p class="cv-step-actor">
+                    Government Program Manager or interested party
+                  </p>
+                  <h3>Define the requirement</h3>
+                  <p class="cv-step-text">
+                    The Government Program Manager or interested party develops
+                    a statement of work, prepares government estimates and
+                    obtains the necessary funding.
+                  </p>
+                </div>
+              </li>
+
+              <li class="cv-step cv-reveal">
+                <div class="cv-step-num" aria-hidden="true">02</div>
+                <div>
+                  <p class="cv-step-actor">Government Program Manager</p>
+                  <h3>Select JBW Federal</h3>
+                  <p class="cv-step-text">
+                    Through direct discussions and negotiations with JBW, the
+                    Government Program Manager selects JBW to perform the work
+                    and submits a procurement request to the agency Contracting
+                    Officer.
+                  </p>
+                </div>
+              </li>
+
+              <li class="cv-step cv-reveal">
+                <div class="cv-step-num" aria-hidden="true">03</div>
+                <div>
+                  <p class="cv-step-actor">Agency Contracting Officer</p>
+                  <h3>Offer Letter to the SBA</h3>
+                  <p class="cv-step-text">
+                    The agency Contracting Officer contacts JBW's SBA Business
+                    Development Specialist, Mr. Sean Smith. Ultimately, the
+                    Contracting Officer will submit an "Offer Letter" to the SBA
+                    for the designated scope of services that JBW will perform.
+                  </p>
+                </div>
+              </li>
+
+              <li class="cv-step cv-reveal">
+                <div class="cv-step-num" aria-hidden="true">04</div>
+                <div>
+                  <p class="cv-step-actor">
+                    Small Business Administration
+                  </p>
+                  <h3>SBA processing</h3>
+                  <p class="cv-step-text">
+                    SBA processes the Offer Letter and returns it to the
+                    Contracting Officer who submits the Statement of Work and
+                    Request for Proposal to JBW.
+                  </p>
+                </div>
+              </li>
+
+              <li class="cv-step cv-reveal">
+                <div class="cv-step-num" aria-hidden="true">05</div>
+                <div>
+                  <p class="cv-step-actor">JBW Federal &amp; awarding agency</p>
+                  <h3>Proposal and award</h3>
+                  <p class="cv-step-text">
+                    JBW submits the proposal which is evaluated and negotiated
+                    (if necessary) by the agency and the contract is awarded.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 ACQUISITION TIMELINE ============ -->
+      <section
+        class="cv-section cv-section--mineral"
+        id="timeline"
+        aria-labelledby="cv-timeline-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-head">
+            <p class="cv-eyebrow cv-reveal">03 — Acquisition timeline</p>
+            <div>
+              <h2 id="cv-timeline-title" class="cv-reveal" style="--d: 1">
+                Sole source contracting against the traditional process.
+              </h2>
+            </div>
+          </div>
+
+          <div class="cv-compare">
+            <div class="cv-compare-row cv-reveal">
+              <p class="cv-compare-label">Sole source</p>
+              <div class="cv-track">
+                <span
+                  class="cv-bar cv-bar--accent"
+                  style="--cv-w: 33%"
+                  aria-hidden="true"
+                ></span>
+              </div>
+              <p class="cv-compare-val">&lt; 30 <em>days</em></p>
+            </div>
+
+            <div class="cv-compare-row cv-reveal" style="--d: 1">
+              <p class="cv-compare-label">Traditional process</p>
+              <div class="cv-track">
+                <span
+                  class="cv-bar"
+                  style="--cv-w: 100%"
+                  aria-hidden="true"
+                ></span>
+              </div>
+              <p class="cv-compare-val">90+ <em>days</em></p>
+            </div>
+
+          </div>
+
+          <p class="cv-compare-foot cv-reveal">
+            Sole Source contracting can be accomplished in less than 30 days,
+            whereas traditional process can take over 90 days. Timeframes
+            describe the process above and depend on agency and SBA action.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 06 REGULATORY BASIS ============ -->
+      <section
+        class="cv-section cv-section--paper"
+        id="regulatory-basis"
+        aria-labelledby="cv-regs-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-head">
+            <p class="cv-eyebrow cv-reveal">04 — Regulatory basis</p>
+            <div>
+              <h2 id="cv-regs-title" class="cv-reveal" style="--d: 1">
+                The authorities cited for this vehicle.
+              </h2>
+            </div>
+          </div>
+
+          <div class="cv-regs">
+            <div class="cv-reg cv-reveal">
+              <p class="cv-reg-src">Federal Acquisition Regulation</p>
+              <p class="cv-reg-cite">FAR 19.805-1(b)(2)</p>
+              <p class="cv-reg-note">
+                Cited on this page as the basis for Sole Source Awards up to
+                $100 million in total contract value.
+              </p>
+            </div>
+            <div class="cv-reg cv-reveal" style="--d: 1">
+              <p class="cv-reg-src">Code of Federal Regulations</p>
+              <p class="cv-reg-cite">13 CFR 124.506(b)</p>
+              <p class="cv-reg-note">
+                Cited on this page as the basis for Sole Source Awards up to
+                $100 million in total contract value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 07 FEDERAL CONTRACTOR INFORMATION ============ -->
+      <section
+        class="cv-section cv-section--mineral"
+        id="contractor-information"
+        aria-labelledby="cv-data-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-head">
+            <p class="cv-eyebrow cv-reveal">05 — Federal contractor information</p>
+            <div>
+              <h2 id="cv-data-title" class="cv-reveal" style="--d: 1">
+                Identifiers and points of contact.
+              </h2>
+            </div>
+          </div>
+
+          <dl class="cv-data">
+            <div class="cv-reveal">
+              <dt>Unique Entity ID</dt>
+              <dd>RYENYEUPVKA8</dd>
+            </div>
+            <div class="cv-reveal" style="--d: 1">
+              <dt>CAGE / NCAGE</dt>
+              <dd>959V0</dd>
+            </div>
+            <div class="cv-reveal" style="--d: 2">
+              <dt>DUNS</dt>
+              <dd>029870630</dd>
+            </div>
+          </dl>
+
+          <div class="cv-poc cv-reveal">
+            <div class="cv-poc-head">
+              <h3>SBA point of contact</h3>
+              <span>San Antonio District</span>
+            </div>
+            <dl class="cv-poc-grid">
+              <div>
+                <dt>SBA representative</dt>
+                <dd>Don Owens</dd>
+              </div>
+              <div>
+                <dt>Title</dt>
+                <dd>Business Opportunity Specialist</dd>
+              </div>
+              <div>
+                <dt>District office</dt>
+                <dd>
+                  <address>
+                    San Antonio District<br />
+                    615 East Houston Street, Ste 298<br />
+                    San Antonio, Texas 78205
+                  </address>
+                </dd>
+              </div>
+              <div>
+                <dt>Phone &amp; email</dt>
+                <dd>
+                  <a href="tel:2104035912">(210) 403-5912</a><br />
+                  <a href="mailto:don.owens@sba.gov">don.owens@sba.gov</a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 08 BONDING CAPACITY ============ -->
+      <section
+        class="cv-section cv-section--white"
+        id="bonding-capacity"
+        aria-labelledby="cv-bond-title"
+      >
+        <div class="cv-shell">
+          <div class="cv-head">
+            <p class="cv-eyebrow cv-reveal">06 — Bonding capacity</p>
+            <div>
+              <h2 id="cv-bond-title" class="cv-reveal" style="--d: 1">
+                Surety capacity available to the mission.
+              </h2>
+            </div>
+          </div>
+
+          <div class="cv-bond">
+            <div class="cv-reveal">
+              <p class="cv-bond-val">
+                <span
+                  data-cv-count="100"
+                  data-cv-prefix="$"
+                  data-cv-suffix="M"
+                  >$100M</span
+                >
+              </p>
+              <p class="cv-bond-lab">Single</p>
+            </div>
+            <div class="cv-reveal" style="--d: 1">
+              <p class="cv-bond-val">
+                <span
+                  data-cv-count="150"
+                  data-cv-prefix="$"
+                  data-cv-suffix="M"
+                  >$150M</span
+                >
+              </p>
+              <p class="cv-bond-lab">Aggregate</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 09 CONTACT / NEXT STEP ============ -->
+      <section
+        class="cv-section cv-section--dark cv-cta"
+        id="cta"
+        aria-labelledby="cv-cta-title"
+      >
+        <div class="cv-cta-frame" aria-hidden="true">
+          <span></span><span></span>
+        </div>
+
+        <div class="cv-shell">
+          <div class="cv-cta-inner">
+            <p class="cv-eyebrow cv-reveal">07 — Next step</p>
+            <h2 id="cv-cta-title" class="cv-reveal" style="--d: 1">
+              Discuss a requirement.
+            </h2>
+            <p class="cv-reveal" style="--d: 2">
+              Bring a draft statement of work, a schedule, or an early
+              requirement. We can walk through scope, estimates, and where an
+              8(a) sole source award fits your acquisition.
+            </p>
+
+            <div class="cv-cta-actions cv-reveal" style="--d: 3">
+              <a class="cv-btn cv-btn--primary" href="/contact-us">
+                Discuss a requirement
+              </a>
+              <a class="cv-btn cv-btn--line" href="mailto:contact@jbwfederal.com">
+                contact@jbwfederal.com
+              </a>
+            </div>
+          </div>
+
+          <dl class="cv-cta-direct cv-reveal" style="--d: 4">
+            <div>
+              <dt>Phone</dt>
+              <dd>
+                <a href="tel:2105010086">210-501-0086</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Alternate</dt>
+              <dd>
+                <a href="tel:3134842994">313-484-2994</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Headquarters</dt>
+              <dd>
+                <address>
+                  16414 San Pedro Avenue, Suite 450<br />San Antonio, TX 78232
+                </address>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-statement">
+          <p class="footer-eyebrow">Closing</p>
+          <h2 class="footer-headline">
+            Built for the missions that matter<span class="accent">.</span>
+          </h2>
+        </div>
+        <a href="#cta" class="footer-cta">
+          <span>Discuss a Project</span>
+          <span class="footer-cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a href="#top" class="nav-brand nav-brand--footer">
+            <span class="nav-brand-mark" aria-hidden="true"></span>
+            JBW <span>Federal</span>
+          </a>
+          <p>
+            Native Hawaiian Organization-owned 8(a) small business serving
+            federal and commercial clients throughout CONUS and Puerto Rico.
+          </p>
+          <ul class="chip-row">
+            <li>SBA 8(a)</li>
+            <li>NHO&#8209;Owned</li>
+            <li>SDB</li>
+          </ul>
+        </div>
+
+        <nav class="footer-col" aria-label="Site">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#federal">Federal Partnership</a></li>
+            <li><a href="#community">Giveback</a></li>
+            <li><a href="#cta">Contact</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Capabilities">
+          <h4>Capabilities</h4>
+          <ul>
+            <li><a href="#capabilities">Construction</a></li>
+            <li><a href="#capabilities">Engineering</a></li>
+            <li><a href="#capabilities">Environmental</a></li>
+            <li><a href="#capabilities">Information Technology</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col footer-reach">
+          <h4>Contact</h4>
+          <p class="reach-line">Serving federal missions nationwide.</p>
+          <address>
+            16414 San Pedro Avenue, Suite 450<br />San Antonio, TX 78232
+          </address>
+          <ul class="footer-contact">
+            <li>
+              <a href="mailto:contact@jbwfederal.com">contact@jbwfederal.com</a>
+            </li>
+            <li><a href="tel:2105010086">210-501-0086</a></li>
+            <li><a href="tel:3134842994">313-484-2994</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <div class="footer-brandmark">
+            <span class="mark" aria-hidden="true"></span>
+            <span>© 2026 JBW Federal. All rights reserved.</span>
+          </div>
+          <div class="footer-legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Existing global script (nav toggle, scroll progress, cursor dot) -->
+    <script src="script.js"></script>
+
+    <!-- =========================================================
+         PAGE SCRIPT — scoped to .cv-page only.
+         Runs independently of script.js so page motion works
+         even if the global script bails on missing homepage nodes.
+         ========================================================= -->
+    <script>
+      (function () {
+        var page = document.querySelector(".cv-page");
+        if (!page) return;
+
+        var reduce =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        var hero = page.querySelector(".cv-hero");
+        var reveals = page.querySelectorAll(".cv-reveal");
+        var counters = page.querySelectorAll("[data-cv-count]");
+
+        function showAll() {
+          if (hero) hero.classList.add("is-in");
+          for (var i = 0; i < reveals.length; i++) {
+            reveals[i].classList.add("is-in");
+          }
+          for (var j = 0; j < counters.length; j++) {
+            setValue(counters[j], parseFloat(counters[j].dataset.cvCount) || 0);
+          }
+        }
+
+        function setValue(el, value) {
+          var pre = el.getAttribute("data-cv-prefix") || "";
+          var suf = el.getAttribute("data-cv-suffix") || "";
+          el.textContent = pre + Math.round(value) + suf;
+        }
+
+        function countUp(el) {
+          if (el.dataset.cvDone === "1") return;
+          el.dataset.cvDone = "1";
+          var target = parseFloat(el.getAttribute("data-cv-count")) || 0;
+          if (reduce) {
+            setValue(el, target);
+            return;
+          }
+          var duration = 1100;
+          var start = null;
+          function frame(ts) {
+            if (start === null) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            setValue(el, target * eased);
+            if (p < 1) requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        }
+
+        if (reduce || !("IntersectionObserver" in window)) {
+          showAll();
+          return;
+        }
+
+        /* Zero out counters that are still below the fold, so the
+           count-up starts from 0 without a visible flicker. */
+        for (var c = 0; c < counters.length; c++) {
+          var rect = counters[c].getBoundingClientRect();
+          if (rect.top > window.innerHeight * 0.9) {
+            setValue(counters[c], 0);
+          }
+        }
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-in");
+              var nums = entry.target.querySelectorAll("[data-cv-count]");
+              for (var n = 0; n < nums.length; n++) countUp(nums[n]);
+              io.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+        );
+
+        for (var r = 0; r < reveals.length; r++) io.observe(reveals[r]);
+
+        /* Hero plays once on load rather than on scroll. */
+        if (hero) {
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              hero.classList.add("is-in");
+            });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
